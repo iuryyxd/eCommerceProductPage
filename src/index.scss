@@ -1,0 +1,67 @@
+:root {
+
+  // Primary
+
+  --color-orange: hsl(26, 100%, 55%);
+  --color-paleOrange: hsl(25, 100%, 94%);
+  
+  // Neutral
+  
+  --color-veryDarkBlue: hsl(220, 13%, 13%);
+  --color-darkGrayishBlue: hsl(219, 9%, 45%);
+  --color-grayishBlue: hsl(220, 14%, 75%);
+  --color-lightGrayishBlue: hsl(223, 64%, 98%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(0, 0%, 0%);
+
+  // (with 75% opacity for lightbox background)
+
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  outline: none;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-paleOrange);
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-orange);
+  border-radius: 5px;
+}
