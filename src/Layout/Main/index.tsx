@@ -6,13 +6,15 @@ import { thumbs, productsImages } from "../../Utils/Thumbs";
 import Thumb from "../../Components/Thumb";
 import { useContext, useState } from "react";
 import { CartCtx } from "../../Context/CartContext";
+import { LightboxCtx } from "../../Context/LightboxContext";
 
 export default function Main() {
   const [thumbActive, setThumbActive] = useState<number>(0);
-  const [productQuantity, setProductQuantity] = useState<number>(0)
+  const [productQuantity, setProductQuantity] = useState<number>(0);
   const { quantity, setQuantity } = useContext(CartCtx);
+  const { openLightbox, setOpenLightbox } = useContext(LightboxCtx);
 
-  const hundleThumbActive = (i: number) => {
+  const handleThumbActive = (i: number) => {
     setThumbActive(i);
   };
 
@@ -24,14 +26,16 @@ export default function Main() {
             src={productsImages[thumbActive]}
             alt=""
             className={styles.productImage}
+            onClick={() => setOpenLightbox(!openLightbox)}
           />
           <div className={styles.productImages__select}>
             {thumbs.map((thumb, index) => (
               <Thumb
+                key={crypto.randomUUID()}
                 img={thumb}
                 index={index}
                 isActive={thumbActive}
-                handleThumbActive={hundleThumbActive}
+                handleThumbActive={handleThumbActive}
               />
             ))}
           </div>
@@ -56,7 +60,8 @@ export default function Main() {
             <div className={styles.quantityButton}>
               <button
                 onClick={() => {
-                  productQuantity !== 0 && setProductQuantity(productQuantity - 1);
+                  productQuantity !== 0 &&
+                    setProductQuantity(productQuantity - 1);
                 }}
               >
                 <img src={minusImg} alt="minus image" />
@@ -66,7 +71,10 @@ export default function Main() {
                 <img src={plusImg} alt="plus image" />
               </button>
             </div>
-            <button className={styles.cartButton} onClick={() => setQuantity((prev) => prev + productQuantity)}>
+            <button
+              className={styles.cartButton}
+              onClick={() => setQuantity((prev) => prev + productQuantity)}
+            >
               <img src={cartImg} alt="cart" /> Add to cart
             </button>
           </div>

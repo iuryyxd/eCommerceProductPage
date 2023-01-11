@@ -1,0 +1,116 @@
+.lightbox {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background: hsla(0, 0%, 0%, 0.75);
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 552px;
+  }
+
+  &__closeButton {
+    align-self: flex-end;
+    margin-top: 87px;
+    margin-bottom: 23px;
+
+    &:hover {
+      cursor: pointer;
+      path {
+        fill: var(--color-orange);
+      }
+    }
+  }
+
+  &__mainImage {
+    width: 100%;
+    height: 548px;
+    position: relative;
+
+    .lightbox__image {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+    }
+
+    .lightbox__previousButton {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--color-white);
+
+      top: 50%;
+      left: -25px;
+      position: absolute;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        cursor: pointer;
+
+        svg {
+          path {
+            color: var(--color-orange);
+          }
+        }
+      }
+
+      svg {
+        margin-right: 3px;
+
+        path {
+          color: var(--color-black);
+        }
+      }
+    }
+
+    .lightbox__nextButton {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--color-white);
+
+      top: 50%;
+      right: -25px;
+      position: absolute;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        cursor: pointer;
+
+        svg {
+          path {
+            color: var(--color-orange);
+          }
+        }
+      }
+
+      svg {
+        margin-left: 3px;
+
+        path {
+          color: var(--color-black);
+        }
+      }
+    }
+  }
+
+  &__thumbs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    // margin-bottom: 86px;
+  }
+}
