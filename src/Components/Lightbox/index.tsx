@@ -6,6 +6,7 @@ import { thumbs, productsImages } from "../../Utils/Thumbs";
 import Thumb from "../Thumb";
 import { useContext, useEffect, useState } from "react";
 import { LightboxCtx } from "../../Context/LightboxContext";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Lightbox() {
   const [thumbActive, setThumbActive] = useState<number>(0);
@@ -17,11 +18,22 @@ export default function Lightbox() {
   const { openLightbox, setOpenLightbox } = useContext(LightboxCtx);
 
   return (
-    <>
+    <AnimatePresence mode="wait">
       {openLightbox && window.innerWidth > 920 && (
         <>
-          <div className={styles.lightbox}></div>
-          <div className={styles.lightbox__container}>
+          <motion.div
+            className={styles.lightbox}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{duration: 0.5}}
+          ></motion.div>
+          <motion.div
+            className={styles.lightbox__container}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: {duration: 0.7} }}
+            exit={{ opacity: 0, transition: {duration: 0.2}}}
+          >
             <svg
               className={styles.lightbox__closeButton}
               width="14"
@@ -85,9 +97,9 @@ export default function Lightbox() {
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
         </>
       )}
-    </>
+    </AnimatePresence>
   );
 }
