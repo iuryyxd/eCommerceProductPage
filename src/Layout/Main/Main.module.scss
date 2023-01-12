@@ -23,6 +23,66 @@
     flex-direction: column;
     gap: 34px;
 
+    .main__previousButton {
+      display: none;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--color-white);
+
+      top: 50%;
+      left: 1rem;
+      position: absolute;
+
+      &:hover {
+        cursor: pointer;
+
+        svg {
+          path {
+            color: var(--color-orange);
+          }
+        }
+      }
+
+      svg {
+        margin-right: 3px;
+
+        path {
+          color: var(--color-black);
+        }
+      }
+    }
+
+    .main__nextButton {
+      display: none;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--color-white);
+
+      top: 50%;
+      right: 1rem;
+      position: absolute;
+
+      &:hover {
+        cursor: pointer;
+
+        svg {
+          path {
+            color: var(--color-orange);
+          }
+        }
+      }
+
+      svg {
+        margin-left: 3px;
+
+        path {
+          color: var(--color-black);
+        }
+      }
+    }
+
     .productImage {
       width: 100%;
       height: 440px;
@@ -208,7 +268,14 @@
       width: 100%;
       display: flex;
       flex-direction: column;
+      position: relative;
       gap: 34px;
+
+      .main__nextButton, .main__previousButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
       .productImage {
         width: 100%;

@@ -28,6 +28,36 @@ export default function Main() {
             className={styles.productImage}
             onClick={() => setOpenLightbox(!openLightbox)}
           />
+
+          <div
+            className={styles.main__previousButton}
+            onClick={() => thumbActive !== 0 && setThumbActive(thumbActive - 1)}
+          >
+            <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11 1 3 9l8 8"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="none"
+                fillRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div
+            className={styles.main__nextButton}
+            onClick={() => thumbActive !== 3 && setThumbActive(thumbActive + 1)}
+          >
+            <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m2 1 8 8-8 8"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="none"
+                fillRule="evenodd"
+              />
+            </svg>
+          </div>
+
           <div className={styles.productImages__select}>
             {thumbs.map((thumb, index) => (
               <Thumb
