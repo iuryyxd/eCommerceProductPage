@@ -1,115 +1,119 @@
 .lightbox {
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   background: hsla(0, 0%, 0%, 0.75);
   z-index: 10;
+}
 
+.lightbox__container {
+  position: absolute;
+  margin-top: 6%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 552px;
+}
 
-  &__container {
-    display: flex;
-    flex-direction: column;
-    width: 552px;
+.lightbox__closeButton {
+  align-self: flex-end;
+  margin-bottom: 23px;
+
+  &:hover {
+    cursor: pointer;
+    path {
+      fill: var(--color-orange);
+    }
+  }
+}
+
+.lightbox__mainImage {
+  width: 100%;
+  height: 548px;
+  position: relative;
+
+  .lightbox__image {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
   }
 
-  &__closeButton {
-    align-self: flex-end;
-    margin-top: 87px;
-    margin-bottom: 23px;
+  .lightbox__previousButton {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: var(--color-white);
+
+    top: 50%;
+    left: -25px;
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
       cursor: pointer;
+
+      svg {
+        path {
+          color: var(--color-orange);
+        }
+      }
+    }
+
+    svg {
+      margin-right: 3px;
+
       path {
-        fill: var(--color-orange);
+        color: var(--color-black);
       }
     }
   }
 
-  &__mainImage {
-    width: 100%;
-    height: 548px;
-    position: relative;
+  .lightbox__nextButton {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: var(--color-white);
 
-    .lightbox__image {
-      width: 100%;
-      height: 100%;
-      border-radius: 16px;
-    }
+    top: 50%;
+    right: -25px;
+    position: absolute;
 
-    .lightbox__previousButton {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background: var(--color-white);
-
-      top: 50%;
-      left: -25px;
-      position: absolute;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        cursor: pointer;
-
-        svg {
-          path {
-            color: var(--color-orange);
-          }
-        }
-      }
-
-      svg {
-        margin-right: 3px;
-
-        path {
-          color: var(--color-black);
-        }
-      }
-    }
-
-    .lightbox__nextButton {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background: var(--color-white);
-
-      top: 50%;
-      right: -25px;
-      position: absolute;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        cursor: pointer;
-
-        svg {
-          path {
-            color: var(--color-orange);
-          }
-        }
-      }
-
-      svg {
-        margin-left: 3px;
-
-        path {
-          color: var(--color-black);
-        }
-      }
-    }
-  }
-
-  &__thumbs {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 40px;
+    justify-content: center;
+
+    &:hover {
+      cursor: pointer;
+
+      svg {
+        path {
+          color: var(--color-orange);
+        }
+      }
+    }
+
+    svg {
+      margin-left: 3px;
+
+      path {
+        color: var(--color-black);
+      }
+    }
   }
+}
+
+.lightbox__thumbs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  width: 100%;
 }

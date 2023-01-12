@@ -18,8 +18,9 @@ export default function Lightbox() {
 
   return (
     <>
-      {openLightbox && (
-        <div className={styles.lightbox}>
+      {openLightbox && window.innerWidth > 920 && (
+        <>
+          <div className={styles.lightbox}></div>
           <div className={styles.lightbox__container}>
             <svg
               className={styles.lightbox__closeButton}
@@ -40,7 +41,12 @@ export default function Lightbox() {
                 alt="foto de um tênis"
                 className={styles.lightbox__image}
               />
-              <div className={styles.lightbox__previousButton} onClick={() => thumbActive !== 0 && setThumbActive(thumbActive - 1)}>
+              <div
+                className={styles.lightbox__previousButton}
+                onClick={() =>
+                  thumbActive !== 0 && setThumbActive(thumbActive - 1)
+                }
+              >
                 <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M11 1 3 9l8 8"
@@ -51,7 +57,12 @@ export default function Lightbox() {
                   />
                 </svg>
               </div>
-              <div className={styles.lightbox__nextButton} onClick={() => thumbActive !== 3 && setThumbActive(thumbActive + 1)}>
+              <div
+                className={styles.lightbox__nextButton}
+                onClick={() =>
+                  thumbActive !== 3 && setThumbActive(thumbActive + 1)
+                }
+              >
                 <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="m2 1 8 8-8 8"
@@ -75,7 +86,7 @@ export default function Lightbox() {
               ))}
             </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );

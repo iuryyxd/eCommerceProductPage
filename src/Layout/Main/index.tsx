@@ -51,11 +51,13 @@ export default function Main() {
             Featuring a durable rubber outer sole, they'll withstand everything
             the weather can offer.
           </p>
-          <div className={styles.productInfo__price}>
-            <p>$125.00</p>
-            <small>50%</small>
+          <div className={styles.productInfo__prices}>
+            <div className={styles.productInfo__price}>
+              <p>$125.00</p>
+              <small>50%</small>
+            </div>
+            <p className={styles.productInfo__oldPrice}>$250.00</p>
           </div>
-          <p className={styles.productInfo__oldPrice}>$250.00</p>
           <div className={styles.productInfo__buttons}>
             <div className={styles.quantityButton}>
               <button

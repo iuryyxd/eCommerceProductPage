@@ -16,6 +16,13 @@ export default function Header() {
       <div className={styles.header__container}>
         <AnimatePresence mode="wait">{openCart && <Cart />}</AnimatePresence>
         <div className={styles.header__left}>
+          <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg" className={styles.header__menu}>
+            <path
+              d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
           <img src={logo} alt="Sneakers logo" />
           <nav>
             <ul>
